@@ -12,12 +12,12 @@ const NewCardForm = ({ addCardCallback }) => {
   const submitCardData = (e) => {
     e.preventDefault();
 
-    addCardCallback(CardData);
+    addCardCallback(cardData);
     setCardData(NEW_CARD);
   };
 
   const handleChange = (e) => {
-    setCardData({ ...CardData, [e.target.name]: e.target.value });
+    setCardData({ ...cardData, [e.target.name]: e.target.value });
   };
 
   return (
