@@ -1,16 +1,16 @@
 .card-container {
     background-color: #fceb9f; 
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; 
     border-radius: 4px; 
     padding: 1rem; 
     margin: 1rem;
     width: 250px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: 'Inter', sans-serif; 
-    position: relative; 
+    font-family: 'Inter', sans-serif;
+    position: relative;
 }
 
 .card-description {
@@ -18,4 +18,46 @@
     margin-bottom: 1rem;
     color: #333;
     min-height: 80px; 
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.like-display {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.card-button {
+    background-color: #e0e0e0;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+    color: #333;
+}
+
+.card-button:hover {
+    background-color: #d0d0d0;
+}
+
+.like-button {
+    margin-left: auto; 
+    margin-right: 0.5rem; 
+}
+
+.delete-button {
+    background-color: #ffcccc; 
+    border-color: #ff9999;
+}
+
+.delete-button:hover {
+    background-color: #ffbbbb; 
 }

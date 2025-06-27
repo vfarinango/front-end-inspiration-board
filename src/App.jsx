@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
 import NewBoardForm from './components/NewBoardForm'
@@ -90,9 +88,17 @@ function App() {
             <NewCardForm addCardCallback={addCard} />
           </NewCardForm>
         </div>
+        
+        <div>
+          <Card></Card>
+        </div>
+
+        <div>
+          <Board></Board>
+        </div>
       </main>
     </div>
   );
 };
 
-export default App
+export default App;
