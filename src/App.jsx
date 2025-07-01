@@ -6,7 +6,7 @@ import axios from 'axios'
 import NewBoardForm from './components/NewBoardForm'
 import NewCardForm from './components/NewCardForm'
 
-const URL = 'TBD';
+const URL = 'https://back-end-inspiration-board-97fl.onrender.com';
 
 function App() {
   const [boards, setBoards] = useState([]);
@@ -63,7 +63,7 @@ function App() {
             card_id: card.id,
             message: card.title,
             likes_count: card.likes_count,
-            // board_id: ?
+            board_id: board.id
           };
         });
         setStatus('Loaded');
