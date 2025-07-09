@@ -48,6 +48,10 @@ const NewBoardForm = ({ addBoardCallback }) => {
           <button className='button newBoardSubmit' type='submit'>
             Submit
           </button>
+          {/* Need to add toggle function */}
+          <botton className='toggleHideForm'>  
+            Hide New Board Form
+          </botton>
         </div>
       </section>
     </form>

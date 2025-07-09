@@ -20,6 +20,11 @@ body {
   margin: 3rem;
 }
 
+section {
+  display: block;
+  unicode-bidi: isolate;
+}
+
 form {
   margin-top: 0em;
   unicode-bidi: isolate;
