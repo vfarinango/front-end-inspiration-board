@@ -8,6 +8,9 @@ import NewCardForm from './components/NewCardForm';
 
 const kBaseUrl = 'https://back-end-inspiration-board-97fl.onrender.com';
 
+
+
+
 const convertBoardFromApi = (apiBoard) => {
   return {
     id: apiBoard.board_id,
@@ -71,12 +74,12 @@ const createCardApi = (boardId, cardData) => {
 
 const likeCardApi = (cardId) => {
   return axios.patch(`${kBaseUrl}/cards/${cardId}/like`)
-   .then(response => {
+  .then(response => {
       return convertCardFromApi(response.data);
-   })
-   .catch( error => {
+  })
+  .catch( error => {
     console.log(error);
-   });
+  });
 };
 
 const deleteCardApi = (cardId) => {
@@ -98,7 +101,6 @@ function App() {
   const [cards, setCards] = useState([]);
   // const [isBoardFormVisible, setIsBoardFormVisible] = useState(false);
   // const [isCardFormVisible, setIsCardFormVisible] = useState(false);
-
 
   const getAllBoards = () => {
     return getAllBoardsApi()
@@ -161,11 +163,11 @@ function App() {
         <h1 className="main-app-title">Inspiration Board</h1>
       </header>
       <main>
-        <div className="board-list-main-container">
-        <div className="board-content-wrapper">
+        <div className='board-list-main-container'>
+        <div className='board-content-wrapper'>
           {/* Left Side - Boards */}
-          <div className="boards-section">
-            <div className="hand-drawn-header">Boards</div>
+          <div className='boards-section'>
+            <div className='hand-drawn-header'>Boards</div>
             
             <BoardList
               boards={boards}
@@ -175,15 +177,14 @@ function App() {
           </div>
 
           {/* Selected Board Section */}
-          <div className="selected-board-section">
-            <div className="hand-drawn-header">Selected Board</div>
+          <div className='selected-board-section'>
+            <div className='hand-drawn-header'>Selected Board</div>
             {selectedBoard ? (
-              <div className="selected-board-display">
+              <div className='selected-board-display'>
                 {selectedBoard.title} - Add 1...
               </div>
             ) : (
-              <div className="selected-board-display">
-                No board selected
+              <div className='selected-board-display'>
               </div>
             )}
           </div>
@@ -221,8 +222,8 @@ function App() {
 
         {/* Cards Section */}
         {selectedBoard && (
-          <div className="cards-section-wrapper">
-            <div className="hand-drawn-header">Cards for {selectedBoard.title}</div>
+          <div className='cards-section-wrapper'>
+            <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
             <CardsList
               cards={cards}
               onCardLike={likeCard}
