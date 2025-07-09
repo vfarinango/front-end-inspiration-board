@@ -31,8 +31,14 @@ form {
 }
 
 .newBoardFields {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   margin-bottom: 2em;
   width: 100%;
+}
+
+.toggleHideForm {
+  display: flex;
+  align-items: end;
 }
