@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import "./NewBoardForm.css";
 
 const NEW_BOARD = {
@@ -49,17 +48,13 @@ const NewBoardForm = ({ addBoardCallback }) => {
             Submit
           </button>
           {/* Need to add toggle function */}
-          <botton className='toggleHideForm'>  
+          <button className='toggleHideForm'>  
             Hide New Board Form
-          </botton>
+          </button>
         </div>
       </section>
     </form>
     );
-};
-
-NewBoardForm.propTypes = {
-  addBoardCallback: PropTypes.func.isRequired,
 };
 
 export default NewBoardForm;

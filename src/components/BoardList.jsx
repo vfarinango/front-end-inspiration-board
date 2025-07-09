@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import {useState, useEffect} from 'react';
+import Board from './Board';
 
 
 const BoardList = () => {
@@ -76,7 +76,7 @@ const BoardList = () => {
             {selectedBoard && (
                 <div className="boards-section cards-section-wrapper"> 
                     <h2 className="hand-drawn-header">Cards for {selectedBoard.name}</h2>
-                    <InnerCardList /> 
+                    
                 </div>
             )}
         </div>

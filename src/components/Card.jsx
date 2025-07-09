@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import './Card.css';
 
 // The Card component represents a single sticky note with content and interactions.
@@ -37,13 +36,6 @@ const Card = ({id, initialLikeCount, onDeleteCard}) => {
             
         </div>
     );
-};
-
-Card.propTypes = {
-    id: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    initialLikeCount: PropTypes.number.isRequired,
-    onDeleteCard: PropTypes.func.isRequired,
 };
 
 export default Card;
