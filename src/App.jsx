@@ -155,65 +155,111 @@ function App() {
     getAllBoards();
   }, []);
 
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className="main-app-title">Inspiration Board</h1>
-      </header>
-      <main>
-        <div className='board-list-main-container'>
-        <div className='board-content-wrapper'>
-          {/* Left Side - Boards */}
-          <div className='boards-section'>
-            <div className='hand-drawn-header'></div>
+  // return (
+  //   <div className='page__container'>
+  //     <header className='App-header'>
+  //       <h1 className='main-app-title'>Inspiration Board</h1>
+  //     </header>
+  //     <main className='content__container'>
+  //       <div className='board-list-main-container'>
+  //       <div className='board-content-wrapper'>
+  //         {/* Left Side - Boards */}
+  //         <div className='boards-section'>
+  //           <div className='hand-drawn-header'></div>
             
-            <BoardList
-              boards={boards}
-              onBoardSelect={selectBoard}
-              selectedBoard={selectedBoard}
-            />
-          </div>
+  //           <BoardList
+  //             boards={boards}
+  //             onBoardSelect={selectBoard}
+  //             selectedBoard={selectedBoard}
+  //           />
+  //         </div>
 
-          {/* Selected Board Section */}
-          <div className='selected-board-section'>
-            <div className='hand-drawn-header'></div>
-            {selectedBoard ? (
-              <div className='selected-board-display'>
-                {selectedBoard.title} - Add 1...
-              </div>
-            ) : (
-              <div className='selected-board-display'>
-              </div>
-            )}
-          </div>
+  //         {/* Selected Board Section */}
+  //         <div className='selected-board-section'>
+  //           <div className='hand-drawn-header'></div>
+  //           {selectedBoard ? (
+  //             <div className='selected-board-display'>
+  //               {selectedBoard.title}
+  //             </div>
+  //           ) : (
+  //             <div className='selected-board-display'>
+  //             </div>
+  //           )}
+  //         </div>
 
-          <div>
-            <NewBoardForm addBoardCallback={createBoard} />
-          </div>
+  //         <div>
+  //           <NewBoardForm addBoardCallback={createBoard} />
+  //         </div>
 
-          <div>
-            <NewCardForm addCardCallback={createCard} />
-          </div>
+  //         <div>
+  //           <NewCardForm addCardCallback={createCard} />
+  //         </div>
           
 
+  //       </div>
+
+
+  //       {/* Cards Section */}
+  //       {selectedBoard && (
+  //         <div className='cards-section-wrapper'>
+  //           <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
+  //           <CardList
+  //             cards={cards}
+  //             onLikeCard={likeCard}
+  //             onDeleteCard={deleteCard}
+  //           />
+  //           </div>
+  //         )}
+  //         </div> 
+  //     </main>
+  //   </div>
+  // );
+
+return (
+  <div className='page__container'>
+    <header className='App-header'>
+      <h1 className="main-app-title">Inspiration Board</h1>
+    </header>
+    <main className='content__container'>
+      <section className='boards__container'>
+        <div className='boards-section'>
+          <BoardList
+            boards={boards}
+            onBoardSelect={selectBoard}
+            selectedBoard={selectedBoard}
+          />
         </div>
 
+        <div className='selected-board-section'>
+          <h2 className='hand-drawn-header'>Selected Board</h2>
+          <div className='selected-board-display'>
+            {selectedBoard?.title}
+          </div>
+        </div> 
 
-        {/* Cards Section */}
+        <div className='new-board-form-container'>
+          <NewBoardForm addBoardCallback={createBoard} />
+        </div>
+
+        <div className='new-card-form-container'>
+          <NewCardForm addCardCallback={createCard} />
+        </div>
+
         {selectedBoard && (
           <div className='cards-section-wrapper'>
-            <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
+            <h2 className='hand-drawn-header'>Cards for {selectedBoard.title}</h2>
             <CardList
               cards={cards}
               onLikeCard={likeCard}
               onDeleteCard={deleteCard}
             />
-            </div>
-          )}
-          </div> 
-      </main>
-    </div>
-  );
+          </div>
+        )}
+      </section>
+    </main>
+  </div>
+  
+);
 };
 
 export default App;

@@ -1,4 +1,9 @@
-main ul.cards-list {
-  width: 50%;
-  margin: auto;
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
