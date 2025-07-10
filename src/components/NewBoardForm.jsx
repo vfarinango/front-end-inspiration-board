@@ -28,8 +28,6 @@ const NewBoardForm = ({ addBoardCallback }) => {
   return (
     <form onSubmit={submitBoardData} className='newBoardForm'>
       <section>
-        <h2>Create a New Board</h2>
-
         {showForm && (
           <div className='newBoardFields'>
             <label htmlFor='Title'>Title</label>

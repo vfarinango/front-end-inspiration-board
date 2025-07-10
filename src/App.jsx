@@ -173,74 +173,19 @@ function App() {
     getAllBoards();
   }, []);
 
-  // return (
-  //   <div className='page__container'>
-  //     <header className='App-header'>
-  //       <h1 className='main-app-title'>Inspiration Board</h1>
-  //     </header>
-  //     <main className='content__container'>
-  //       <div className='board-list-main-container'>
-  //       <div className='board-content-wrapper'>
-  //         {/* Left Side - Boards */}
-  //         <div className='boards-section'>
-  //           <div className='hand-drawn-header'></div>
-            
-  //           <BoardList
-  //             boards={boards}
-  //             onBoardSelect={selectBoard}
-  //             selectedBoard={selectedBoard}
-  //           />
-  //         </div>
 
-  //         {/* Selected Board Section */}
-  //         <div className='selected-board-section'>
-  //           <div className='hand-drawn-header'></div>
-  //           {selectedBoard ? (
-  //             <div className='selected-board-display'>
-  //               {selectedBoard.title}
-  //             </div>
-  //           ) : (
-  //             <div className='selected-board-display'>
-  //             </div>
-  //           )}
-  //         </div>
-
-  //         <div>
-  //           <NewBoardForm addBoardCallback={createBoard} />
-  //         </div>
-
-  //         <div>
-  //           <NewCardForm addCardCallback={createCard} />
-  //         </div>
-          
-
-  //       </div>
-
-
-  //       {/* Cards Section */}
-  //       {selectedBoard && (
-  //         <div className='cards-section-wrapper'>
-  //           <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
-  //           <CardList
-  //             cards={cards}
-  //             onLikeCard={likeCard}
-  //             onDeleteCard={deleteCard}
-  //           />
-  //           </div>
-  //         )}
-  //         </div> 
-  //     </main>
-  //   </div>
-  // );
-
-return (
+  return (
   <div className='page__container'>
     <header className='App-header'>
-      <h1 className="main-app-title">Inspiration Board</h1>
+      <h1 className='main-app-title'>Inspiration Board</h1>
     </header>
+
     <main className='content__container'>
       <section className='boards__container'>
+
+        {/* Column 1: Board List */}
         <div className='boards-section'>
+          <h2 className="hand-drawn-header">Boards</h2>
           <BoardList
             boards={boards}
             onBoardSelect={selectBoard}
@@ -248,21 +193,27 @@ return (
           />
         </div>
 
+        {/* Column 2: Selected Board Info */}
         <div className='selected-board-section'>
-          <h2 className='hand-drawn-header'>Selected Board</h2>
+          <h2 className="hand-drawn-header">Selected Board</h2>
           <div className='selected-board-display'>
-            {selectedBoard?.title}
+            {selectedBoard ? `${selectedBoard.title} - ${selectedBoard.owner}` : 'Select a board to view cards.'}
           </div>
-        </div> 
+        </div>
 
+        {/* Column 3: New Board Form */}
         <div className='new-board-form-container'>
+          <h2 className='hand-drawn-header'>Create New Board</h2>
           <NewBoardForm addBoardCallback={createBoard} />
         </div>
 
+        {/* Full-width Row: New Card Form */}
         <div className='new-card-form-container'>
+          <h2 className='hand-drawn-header'>Create New Card</h2>
           <NewCardForm addCardCallback={createCard} />
         </div>
 
+        {/* Full-width Row: Cards */}
         {selectedBoard && (
           <div className='cards-section-wrapper'>
             <h2 className='hand-drawn-header'>Cards for {selectedBoard.title}</h2>
@@ -273,11 +224,12 @@ return (
             />
           </div>
         )}
+
       </section>
     </main>
   </div>
-  
-);
+  );
+
 };
 
 export default App;
