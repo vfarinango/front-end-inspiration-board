@@ -94,6 +94,13 @@ const deleteCardApi = (cardId) => {
     });
 };
 
+const deleteBoardApi = (boardId) => {
+  return axios.delete(`${kBaseUrl}/boards/${boardId}`)
+    .then(response => response.data)
+    .catch(error => {
+      console.error("Error deleting board:", error);
+    });
+};
 
 
 
@@ -150,6 +157,17 @@ function App() {
         setCards(prevCards => prevCards.filter(card => card.id !== cardId));
       });
   };
+
+  const deleteBoard = () => {
+  if (!selectedBoard) return;
+
+  deleteBoardApi(selectedBoard.id)
+    .then(() => {
+      setBoards(prevBoards => prevBoards.filter(board => board.id !== selectedBoard.id));
+      setSelectedBoard(null);
+      setCards([]); // clear cards section too
+    });
+};
 
   useEffect(() => {
     getAllBoards();
