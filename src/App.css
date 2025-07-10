@@ -79,3 +79,40 @@ body {
   font-family: Open Sans, sans-serif;
   margin: 3rem;
 }
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 0.5rem 1.3rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  border: 2px solid black;
+  background-color: #2e3a59; /* dark slate blue */
+  color: #f0f0f0; /* light text for contrast */
+  cursor: pointer;
+  box-shadow: 4px 4px 0px black; /* thick shadow matching your board style */
+  transition:
+    background-color 0.3s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+button:hover {
+  background-color: #1c2541; /* darker slate blue */
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px black;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0px black;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #a0a8c3; /* subtle blue glow */
+}
+
+

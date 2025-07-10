@@ -94,6 +94,13 @@ const deleteCardApi = (cardId) => {
     });
 };
 
+const deleteBoardApi = (boardId) => {
+  return axios.delete(`${kBaseUrl}/boards/${boardId}`)
+    .then(response => response.data)
+    .catch(error => {
+      console.error("Error deleting board:", error);
+    });
+};
 
 
 
@@ -151,6 +158,17 @@ function App() {
       });
   };
 
+  const deleteBoard = () => {
+  if (!selectedBoard) return;
+
+  deleteBoardApi(selectedBoard.id)
+    .then(() => {
+      setBoards(prevBoards => prevBoards.filter(board => board.id !== selectedBoard.id));
+      setSelectedBoard(null);
+      setCards([]); // clear cards section too
+    });
+};
+
   useEffect(() => {
     getAllBoards();
   }, []);
@@ -179,7 +197,10 @@ function App() {
             <div className='hand-drawn-header'></div>
             {selectedBoard ? (
               <div className='selected-board-display'>
-                {selectedBoard.title} - Add 1...
+                <p>{selectedBoard.title} - {selectedBoard.owner}</p>
+                <button onClick={deleteBoard} className="delete-board-button">
+                Delete Board
+                </button>
               </div>
             ) : (
               <div className='selected-board-display'>
