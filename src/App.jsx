@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import axios from 'axios'
 import BoardList from './components/BoardList';
+import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 
@@ -40,13 +41,14 @@ const getAllBoardsApi = () => {
    });
 };
 
+
 const getCardsApi = (boardId) => {
   return axios.get(`${kBaseUrl}/boards/${boardId}/cards`)
    .then( response => {
-     return response.data.map()(convertCardFromApi);
+     return response.data.map(convertCardFromApi);  
    })
    .catch( error => {
-    console.log(error);
+     console.log(error);
    });
 };
 
@@ -117,7 +119,6 @@ function App() {
   const createBoard = (boardData) => {
     return createBoardApi(boardData)
       .then(() => {
-        setIsBoardFormVisible(false);
         return getAllBoards();
       });
   };
@@ -126,7 +127,6 @@ function App() {
     if(!selectedBoard) return;
     return createCardApi(selectedBoard.id, cardData)
       .then(() => {
-        setIsCardFormVisible(false);
         return getCards(selectedBoard.id);
       });
   };
@@ -196,25 +196,6 @@ function App() {
           <div>
             <NewCardForm addCardCallback={createCard} />
           </div>
-
-
-          {/* --- Qiaoqiao Code Insert Here ----
-          
-          <div className="forms-section">
-            <NewBoardForm
-              onBoardCreate={createBoard}
-              isVisible={isBoardFormVisible}
-              onToggleForm={() => setIsBoardFormVisible(!isBoardFormVisible)}
-            />
-
-            <NewCardForm
-              onCardCreate={createCard}
-              selectedBoard={selectedBoard}
-              isVisible={isCardFormVisible}
-              onToggleForm={() => setIsCardFormVisible(!isCardFormVisible)}
-            />
-          </div> 
-          */}
           
 
         </div>
@@ -224,7 +205,7 @@ function App() {
         {selectedBoard && (
           <div className='cards-section-wrapper'>
             <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
-            <CardsList
+            <CardList
               cards={cards}
               onCardLike={likeCard}
               onCardDelete={deleteCard}
