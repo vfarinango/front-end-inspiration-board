@@ -176,7 +176,7 @@ function App() {
 
           {/* Selected Board Section */}
           <div className='selected-board-section'>
-            <div className='hand-drawn-header'>Selected Board</div>
+            <div className='hand-drawn-header'></div>
             {selectedBoard ? (
               <div className='selected-board-display'>
                 {selectedBoard.title} - Add 1...
