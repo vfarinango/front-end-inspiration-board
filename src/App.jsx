@@ -25,8 +25,8 @@ const convertCardFromApi = (card) => {
   return {
     id: card.card_id,
     message: card.message,
-    likes_count: card.likes_count || card.likesCount || 0,
-    board_id: card.board_id || card.boardId
+    initialLikeCount: card.likes_count || card.likesCount || 0,
+    boardId: card.board_id || card.boardId
   };
 };
 
@@ -101,8 +101,6 @@ function App() {
   const [boards, setBoards] = useState([]);
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [cards, setCards] = useState([]);
-  // const [isBoardFormVisible, setIsBoardFormVisible] = useState(false);
-  // const [isCardFormVisible, setIsCardFormVisible] = useState(false);
 
   const getAllBoards = () => {
     return getAllBoardsApi()
@@ -167,7 +165,7 @@ function App() {
         <div className='board-content-wrapper'>
           {/* Left Side - Boards */}
           <div className='boards-section'>
-            <div className='hand-drawn-header'>Boards</div>
+            <div className='hand-drawn-header'></div>
             
             <BoardList
               boards={boards}
@@ -207,8 +205,8 @@ function App() {
             <div className='hand-drawn-header'>Cards for {selectedBoard.title}</div>
             <CardList
               cards={cards}
-              onCardLike={likeCard}
-              onCardDelete={deleteCard}
+              onLikeCard={likeCard}
+              onDeleteCard={deleteCard}
             />
             </div>
           )}
